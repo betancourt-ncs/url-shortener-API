@@ -153,6 +153,9 @@ GET /shorten/{short_code}/stats
 
 This project solidified my understanding of RESTful API design and working with relational databases in a production-like setup. Key concepts I worked through include CRUD architecture, SQLAlchemy ORM modeling, request/response validation with Pydantic, dependency injection, and clean separation of concerns across a multi-file backend.
 
+For more info visit https://roadmap.sh/projects/url-shortening-service
+
+
 ## License
 
 MIT
