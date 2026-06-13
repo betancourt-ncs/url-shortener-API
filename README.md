@@ -35,7 +35,7 @@ url-shortener/
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/betancourt-ncs/url-shortener.git
+git clone https://github.com/betancourt-ncs/url-shortener-API.git
 cd url-shortener
 ```
 
