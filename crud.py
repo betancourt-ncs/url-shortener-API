@@ -16,12 +16,18 @@ def create_short_url(db, original_url: str):
 def get_short_url(db, short_code: str):
     result = db.query(ShortURL).filter(
         ShortURL.short_code == short_code).first()
+
+    if result:
+        result.access_count += 1
+        db.commit()
+
     return result
 
 
 # Updating the URL in an existing row
 def update_short_url(db, short_code: str, new_url: str):
-    existing_url = get_short_url(db, short_code)
+    existing_url = db.query(ShortURL).filter(
+        ShortURL.short_code == short_code).first()
 
     if existing_url:
         existing_url.url = new_url
@@ -34,7 +40,8 @@ def update_short_url(db, short_code: str, new_url: str):
 
 # Deleting a row
 def delete_short_url(db, short_code: str):
-    existing_url = get_short_url(db, short_code)
+    existing_url = db.query(ShortURL).filter(
+        ShortURL.short_code == short_code).first()
     if existing_url:
         db.delete(existing_url)
         db.commit()
